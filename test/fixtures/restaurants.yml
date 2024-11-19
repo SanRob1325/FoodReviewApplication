@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  comment: MyText
+  waiting_time_estimate: MyString
+  author: MyString
+  rating: MyString
+
+two:
+  name: MyString
+  comment: MyText
+  waiting_time_estimate: MyString
+  author: MyString
+  rating: MyString

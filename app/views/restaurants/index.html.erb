@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Restaurants" %>
+
+<h1>Restaurants</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Restaurant</th>
+    <th>Comment</th>
+    <th>Estimated Time</th>
+    <th>Rating</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @restaurant.each do |restaurant| %>
+  <tr>
+    <td><%= image_tag restaurant.image.url(:medium) %></td>
+    <td><%= restaurant.name %></td>
+    <td><%= restaurant.comment %></td>
+    <td><%= restaurant.waiting_time_estimate %></td>
+    <td><%= restaurant.rating %></td>
+    <td><%= link_to 'Show', restaurant %></td>
+    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+    <td><%= link_to 'Delete', restaurant, method: delete, data: {confirm: 'Are you sure you would like to delete this review?'} %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "New restaurant", new_restaurant_path %>
