@@ -1,23 +1,44 @@
-<%= image_tag @restaurant.image.url(:medium) %>>
-<p>
-  <strong>Restaurant: </strong>
-  <%= @restaurant.name %>
-</p>
-<p>
-  <strong>Comment: </strong>
-  <%= @restaurant.comment %>
-</p>
-<p>
-  <strong>Estimated waiting time: </strong>
-  <%= @restaurant.waiting_time_estimate %>
-</p>
-<p>
-  <strong>Rating: </strong>
-  <%= @restaurant.rating %>
-</p>
-<div>
+<div class="panel panel-default">
+  <div class = "panel-body">
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag @restaurant.image.url(:medium) %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+            <tr>
+              <td><strong>Restaurant: </strong></td>
+              <td><%= @restaurant.name %></td>
+            </tr>
+            <tr>
+              <td><strong>Comment: </strong ></td>
+              <td><%= @restaurant.comment %></td>
+            </tr>
+            <tr>
+              <td><strong>Estimated waiting time: </strong>
+              <td><%= @restaurant.waiting_time_estimate %></td>
+            </tr>
+            <tr>
+              <td><strong>Rating:</strong></td>
+              <td><strong><%= @restaurant.rating %></strong></td>
+            </tr>
+            </tbody>
+          </table>
+          <%= link_to "Write a Review", new_restaurant_path(@restaurant) %>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <h1 class="review_title"><%= @restaurant.title %></h1>
+        <p><%= @restaurant.description %></p>
+        <% if @reviews.blank? %>
+          <h3> No reviews just yet,would you like to add the first one</h3>
+          <%= link_to f %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
   <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
   <%= link_to "Back to restaurants", restaurants_path %>
-
   <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
-</div>
+
